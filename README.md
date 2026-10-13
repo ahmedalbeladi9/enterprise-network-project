@@ -45,6 +45,11 @@ architecture. In short:
 - Six access switches (`sw-it`, `SW-LIB`, `SW-ENG`, `sw-admin`, `sw-sec`, `sw-stu`) connect end-user
   devices, each trunked up to its site's core switch.
 
+## Network Topology
+
+![Enterprise Network Topology](screenshots/network-topology.png)
+
+
 ## Technologies Used
 
 - Cisco IOS (routers and switches)
