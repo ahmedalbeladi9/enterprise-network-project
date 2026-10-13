@@ -50,6 +50,7 @@ architecture. In short:
 ![Enterprise Network Topology](screenshots/Full_topology_screenshot.png)
 
 
+
 ## Technologies Used
 
 - Cisco IOS (routers and switches)
