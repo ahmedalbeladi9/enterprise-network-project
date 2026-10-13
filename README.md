@@ -47,7 +47,7 @@ architecture. In short:
 
 ## Network Topology
 
-![Enterprise Network Topology](screenshots/Full_topology_screenshot.png)
+![Enterprise Network Topology](screenshots/Full topology screenshot.png)
 
 
 ## Technologies Used
