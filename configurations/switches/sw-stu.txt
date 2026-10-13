@@ -1,0 +1,131 @@
+sw-stu#SH R
+Building configuration...
+
+Current configuration : 2215 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname sw-stu
+!
+!
+!
+ip ssh version 2
+ip domain-name CCNA.LAB
+!
+username admin secret 5 <REDACTED>
+!
+ip arp inspection vlan 50
+!
+ip dhcp snooping vlan 50
+ip dhcp snooping
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 50,99
+ ip arp inspection trust
+ ip dhcp snooping trust
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 50,99
+ ip arp inspection trust
+ ip dhcp snooping trust
+ switchport mode trunk
+!
+interface FastEthernet0/3
+ switchport access vlan 50
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ switchport access vlan 50
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 192.168.198.17 255.255.255.0
+!
+ip default-gateway 192.168.198.1
+!
+!
+!
+!
+ip access-list standard MGMT-ONLY
+ permit 192.168.198.0 0.0.0.255
+ permit 192.168.199.0 0.0.0.255
+line con 0
+!
+line vty 0 4
+ access-class MGMT-ONLY in
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+!
+!
+!
+end
